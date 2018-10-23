@@ -27,7 +27,7 @@ const server = http.createServer((request, result) => {
     }).on('end', () => {
       payload = JSON.parse(payload);
       post.write(JSON.stringify({ 
-        userHash: process.env.USER_HASH,
+        userHash: '1234567890',
         language: payload.language,
         redirectUrl: payload.redirectUrl,
       })

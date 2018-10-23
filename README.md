@@ -5,6 +5,8 @@ Sample apps showcasing the possible use cases with the Nordic API Gateway SDK.
 ## Getting started
 The sample app is called QuickSprout and is a app that enables users to get an overview of their savings. It is still a work in progress. For now it is only possible to authenticate with banks ~~and list the user's accounts~~.
 
+Find the Swagger documentation at https://api.nordicapigateway.com/swagger/index.html.
+
 ### Sign up for Nordic API Gateway
 
 1. Go to https://www.nordicapigateway.com/ and sign up
@@ -18,11 +20,10 @@ If you have not already implemented services to communicate with Nordic API Gate
 ```
 CLIENT_ID=<Client ID>
 CLIENT_SECRET=<Client ID>
-USER_HASH=''
 ```
 * `CLIENT_ID` – This variable contains the client ID (found at https://developer.nordicapigateway.com/keys)
 * `CLIENT_SECRET` – This variable contains the client secret (found at https://developer.nordicapigateway.com/keys)
-* `USER_HASH` – This variable contains a hash value and is used to identify which user accessed the Nordic API Gateway
+
 3. Run `npm install` and then `node index.js` to start the server.
 
 This simple server returns an URL that is used to load the authentication flow from the Nordic API Gateway.
