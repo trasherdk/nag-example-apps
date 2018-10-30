@@ -13,7 +13,8 @@ class WebViewViewController: UIViewController {
   
   let notificationName = "urlSchemeTriggered"
   let urlScheme = "nagdemoapp"
-  
+  weak var delegate: ViewControllerDelegate? = nil
+
   override func viewDidLoad() {
     super.viewDidLoad()
     if let view = self.view as? NAGLoginView {
@@ -41,14 +42,14 @@ class WebViewViewController: UIViewController {
     }
     NotificationCenter.default.removeObserver(self, name: Notification.Name(self.notificationName), object: nil)
     if let view = self.view as? NAGLoginView {
-      view.delegate?.didReceiveToken(code: (url.absoluteString))
+      view.delegate?.didReceiveToken(code: url.getQueryString(parameter: "code")!)
     }
   }
 }
 
 extension WebViewViewController: NAGLoginViewDelegate {
   func didReceiveToken(code: String) {
-      print(code)
+      delegate?.didReceiveCode(code: code)
       self.dismiss(animated: true, completion: nil)
     }
 }
