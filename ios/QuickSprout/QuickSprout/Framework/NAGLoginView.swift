@@ -79,8 +79,8 @@ class NAGLoginView: UIView {
 }
 
 extension NAGLoginView: WKScriptMessageHandler {
+  
   func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-    
     guard let response = message.body as? NSDictionary else {
       return
     }
@@ -107,12 +107,10 @@ extension NAGLoginView: WKScriptMessageHandler {
     appWebView.isHidden = false
     nagWebView.isHidden = true
   }
+  
 }
 
 extension NAGLoginView: WKNavigationDelegate {
-  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-    print("webViewDidFinishNavigation")
-  }
   
   func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
     if let notificationName = self.notificationName, let urlScheme = self.urlScheme {
@@ -124,4 +122,5 @@ extension NAGLoginView: WKNavigationDelegate {
       }
     }
   }
+  
 }

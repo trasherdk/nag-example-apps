@@ -45,7 +45,6 @@ extension ViewController: ViewControllerDelegate {
                 let viewController = storyboard.instantiateAccountsViewController()
                 viewController.accounts = accounts
                 self.navigationController?.pushViewController(viewController, animated: true)
-                print(accounts)
             }
         }
     }

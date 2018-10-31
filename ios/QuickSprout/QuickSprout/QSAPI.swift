@@ -18,10 +18,6 @@ public struct QSAPI {
     if let request = buildPostRequest(endpoint: endpoint, body: parameters) {
       let session = URLSession.shared
       session.dataTask(with: request) { (data, response, error) in
-        if let response = response {
-          print(response)
-        }
-        
         if let data = data {
           do {
             let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
