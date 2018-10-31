@@ -14,9 +14,9 @@ struct QSAccount {
   var name: String?
   var iban: String?
   var currency: String?
-  var bookedBalance: String?
+  var bookedBalance: Double?
   
-  init(providerId: String, name: String, iban: String, currency: String, bookedBalance: String) {
+  init(providerId: String, name: String, iban: String, currency: String, bookedBalance: Double) {
     self.providerId = providerId
     self.name = name
     self.iban = iban

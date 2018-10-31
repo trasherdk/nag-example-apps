@@ -73,7 +73,7 @@ public struct QSAPI {
               if let accounts = json["accounts"] as? [Any] {
                 for account in accounts {
                   if let _account = account as? [String: Any] {
-                    var accounta = QSAccount(providerId: "", name: "", iban: "", currency: "", bookedBalance: "")
+                    var accounta = QSAccount(providerId: "", name: "", iban: "", currency: "", bookedBalance: 0)
                     if let _providerId = _account["providerId"] as? String {
                       accounta.providerId = _providerId
                     }
@@ -86,7 +86,7 @@ public struct QSAPI {
                     if let _currency = _account["currency"] as? String {
                       accounta.currency = _currency
                     }
-                    if let _bookedBalance = _account["bookedBalance"] as? String {
+                    if let _bookedBalance = _account["bookedBalance"] as? Double {
                       accounta.bookedBalance = _bookedBalance
                     }
                     acccoutsr.append(accounta)
