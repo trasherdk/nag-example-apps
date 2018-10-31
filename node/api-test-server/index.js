@@ -37,7 +37,7 @@ const server = http.createServer((request, result) => {
     post.end()
     });
   } else if(request.url =='/tokens') {
-    let post = http.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/tokens'), res => {
+    let post = https.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/tokens'), res => {
       var chunks = []
       res.on('data', (chunk) => {
         chunks.push(chunk);
@@ -69,7 +69,7 @@ const server = http.createServer((request, result) => {
     }).on('end', () => {
       payload = JSON.parse(payload);
       console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'))
-      let get = http.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'), res => {
+      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'), res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
