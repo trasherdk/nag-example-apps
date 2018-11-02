@@ -28,8 +28,47 @@ CLIENT_SECRET=<Client ID>
 
 This simple server returns an URL that is used to load the authentication flow from the Nordic API Gateway.
 
+The server implements the following endpoints
+
+```
+POST /init
+```
+Implements `POST /v1/authentication/initialize` (see [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Initialize))
+
+Request body
+* redirectUrl : `<string>`
+
+Response
+* See [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Initialize)
+
+```
+POST /tokens
+```
+Implements `POST /v1/authentication/tokens` (see [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Tokens))
+
+Request body
+* code : `<string>`
+
+Response
+* See [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Tokens)
+
+``` 
+POST /accounts
+```
+Implements `GET /v1/accounts` (see [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Account_GetAccounts)) 
+
+Request body
+* token : `<string>`
+
+Response
+* See [documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Account_GetAccounts)
 ### Setup Xcode project
 1. Open Xcode and select the project file
 2. Select 'QuickSprout' under 'Targets' and select 'Build Settings'
 3. Set `NAG_API_URL` found under 'User Defined' to match your configuration
 4. Start the application
+
+### Setup Android project
+1. Open Android Studio and select 'Open project' and browse the project folder
+2. Make sure that you have configured network settings for the application, add unsecure connections to `/app/src/main/res/xml/network_security_config.xml`
+3. Start the application
