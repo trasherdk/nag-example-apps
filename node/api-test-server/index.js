@@ -77,10 +77,9 @@ const server = http.createServer((request, result) => {
         res.on('end', () => {
           var body = Buffer.concat(chunks);
           result.statusCode = 200;
-          // result.setHeader('Content-Type', 'application/json');
-          // result.end(body.toString());
-          console.log(new Date() ,body.toString());
+          result.setHeader('Content-Type', 'application/json');
           result.end(body.toString())
+          console.log(new Date() ,body.toString());
         })
   
       })
