@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     val json = JSONObject(response.body()?.string())
                     startActivityForResult(Intent(this@MainActivity, LoginActivity::class.java).apply {
                         putExtra("html", json.getString("authUrl"))
-                    }, 1337)
+                    }, 0)
                 }
             })
             startActivity(intent)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1337) {
+        if (requestCode == 0) {
             if (resultCode == Activity.RESULT_OK) {
                 data.let {
                     val code = it?.getStringExtra("code")
