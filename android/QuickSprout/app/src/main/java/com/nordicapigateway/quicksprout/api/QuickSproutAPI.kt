@@ -6,14 +6,6 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-@FunctionalInterface
-interface IQuickSproutAPI {
-    fun onInit(response: Response) {}
-    fun onToken(token: String) {}
-    fun onAccount(accountsObject: JSONObject) {}
-    fun onTransactions(transactionObject: JSONObject) {}
-}
-
 class QuickSproutAPI {
 
     private val activity: AppCompatActivity
@@ -83,12 +75,11 @@ class QuickSproutAPI {
             .build()
         client.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onResponse(call: Call, response: Response) {
                 val accountsObject = JSONObject(response.body()?.string())
-                //accountId = (accountsObject.getJSONArray("accounts")[0] as JSONObject).get("name").toString();
                 activity.runOnUiThread {
                     callback.onAccount(accountsObject)
                 }

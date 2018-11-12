@@ -1,4 +1,4 @@
-package com.nordicapigateway.quicksprout.activity
+package com.nordicapigateway.quicksprout.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ class TransactionsAdapter(private val data: JSONArray) : RecyclerView.Adapter<Tr
         val container: LinearLayout)
         : RecyclerView.ViewHolder(container)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionsAdapter.TransactionsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionsViewHolder {
         val container = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_transaction, parent, false) as LinearLayout
         return TransactionsViewHolder(container)
     }
