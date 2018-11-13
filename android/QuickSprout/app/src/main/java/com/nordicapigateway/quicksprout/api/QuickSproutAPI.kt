@@ -6,15 +6,10 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-class QuickSproutAPI {
+class QuickSproutAPI constructor(activity: AppCompatActivity) {
 
-    private val activity: AppCompatActivity
+    private val activity: AppCompatActivity = activity
     private val url = "http://10.0.2.2:3000"
-
-
-    constructor(activity: AppCompatActivity) {
-        this.activity = activity
-    }
 
     fun init(callback: IQuickSproutAPI) {
         val client = OkHttpClient()
@@ -75,7 +70,7 @@ class QuickSproutAPI {
             .build()
         client.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+                Log.e("accounts", e.message)
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -88,9 +83,6 @@ class QuickSproutAPI {
     }
 
     fun transactions(token: String, accountId: String, callback: IQuickSproutAPI, activity: AppCompatActivity = this.activity) {
-        if(accountId == null) {
-            callback.onTransactions(JSONObject())
-        }
         val client = OkHttpClient()
         val body = RequestBody.create(MediaType.parse("application/json"), """{"token" : "$token" }""")
         val request = Request.Builder()
@@ -101,7 +93,7 @@ class QuickSproutAPI {
             .build()
         client.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.e("transactions", e.message)
             }
 
             override fun onResponse(call: Call, response: Response) {
