@@ -5,12 +5,12 @@ require('dotenv').config()
 
 const HOSTNAME = '127.0.0.1';
 const PORT = 3000;
-const NAG_HOST = '192.168.86.235'
-const NAG_PORT = 50139
+const NAG_HOST = 'api.nordicapigateway.com'
+const NAG_PORT = 443
 
 const server = http.createServer((request, result) => {
   if(request.url === '/init') {
-    let post = http.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/initialize'), res => {
+    let post = https.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/initialize'), res => {
       var chunks = []
       res.on('data', (chunk) => {
         chunks.push(chunk);
@@ -38,7 +38,7 @@ const server = http.createServer((request, result) => {
     post.end()
     });
   } else if(request.url =='/tokens') {
-    let post = http.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/tokens'), res => {
+    let post = https.request(postOptions(NAG_HOST, NAG_PORT, '/v1/authentication/tokens'), res => {
       var chunks = []
       res.on('data', (chunk) => {
         chunks.push(chunk);
@@ -70,7 +70,7 @@ const server = http.createServer((request, result) => {
     }).on('end', () => {
       payload = JSON.parse(payload);
       console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'))
-      let get = http.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'), res => {
+      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'), res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
@@ -98,7 +98,7 @@ const server = http.createServer((request, result) => {
     }).on('end', () => {
       payload = JSON.parse(payload);
       console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts/' + id + '/transactions'))
-      let get = http.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts/' + id + '/transactions'), res => {
+      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts/' + id + '/transactions'), res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
