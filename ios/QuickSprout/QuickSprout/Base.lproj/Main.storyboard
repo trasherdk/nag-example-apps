@@ -30,7 +30,7 @@
         <!--QuickSprout-->
         <scene sceneID="3Jd-Y8-aAA">
             <objects>
-                <viewController id="WR4-Wj-Z3a" customClass="ViewController" customModule="QuickSprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WR4-Wj-Z3a" customClass="HomeViewController" customModule="QuickSprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Cy-8X-Yan">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

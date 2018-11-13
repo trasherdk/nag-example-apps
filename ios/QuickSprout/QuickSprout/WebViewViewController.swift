@@ -14,7 +14,7 @@ class WebViewViewController: UIViewController {
     
     let notificationName = "urlSchemeTriggered"
     let urlScheme = "nagdemoapp"
-    weak var delegate: ViewControllerDelegate? = nil
+    weak var delegate: HomeViewControllerDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
