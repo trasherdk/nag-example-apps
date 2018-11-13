@@ -8,47 +8,57 @@
 
 import UIKit
 import WebKit
+import NAGLoginSDK
 
 class WebViewViewController: UIViewController {
-  
-  let notificationName = "urlSchemeTriggered"
-  let urlScheme = "nagdemoapp"
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    if let view = self.view as? NAGLoginView {
-      view.delegate = self
-      if let info = Bundle.main.path(forResource: "Info", ofType: "plist") {
-        if let dict = NSDictionary(contentsOfFile: info) as? [String: Any] {
-          let url = URL(string: dict["Nordic API Gateway URL"] as! String);
-          QSAPI.initAuth(endpoint: url!, language: "da", redirectUrl: "nagdemoapp://") {
-            (url) in
-            NotificationCenter.default.addObserver(self, selector: #selector(self.urlSchemeTriggered(_:)), name: Notification.Name(self.notificationName), object: nil)
-            let url = URL(string:url)
-            let request = URLRequest(url: url!)
-            view.notificationName = self.notificationName
-            view.urlScheme = self.urlScheme
-            view.appWebView.load(request)
-          }
+    
+    let notificationName = "urlSchemeTriggered"
+    let urlScheme = "nagdemoapp"
+    weak var delegate: HomeViewControllerDelegate? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let view = self.view as? NAGLoginView {
+            view.delegate = self
+            if let info = Bundle.main.path(forResource: "Info", ofType: "plist") {
+                if let dict = NSDictionary(contentsOfFile: info) as? [String: Any] {
+                    let url = URL(string: dict["Nordic API Gateway URL"] as! String);
+                    QSAPI.initAuth(endpoint: url!, language: "da", redirectUrl: "nagdemoapp://") {
+                        (url) in
+                        NotificationCenter.default.addObserver(self, selector: #selector(self.urlSchemeTriggered(_:)), name: Notification.Name(self.notificationName), object: nil)
+                        let url = URL(string:url)
+                        let request = URLRequest(url: url!)
+                        view.notificationName = self.notificationName
+                        view.urlScheme = self.urlScheme
+                        view.appWebView.load(request)
+                    }
+                }
+            }
         }
-      }
     }
-  }
-  
-  @objc func urlSchemeTriggered(_ notification : Notification) {
-    guard let url = notification.object as? URL else {
-      return
+    
+    @objc func urlSchemeTriggered(_ notification : Notification) {
+        guard let url = notification.object as? URL else {
+            return
+        }
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(self.notificationName), object: nil)
+        if let view = self.view as? NAGLoginView {
+            if let code = url.getQueryString(parameter: "code") {
+                view.delegate?.didReceiveToken(code: code)
+            } else if let error = url.getQueryString(parameter: "error") {
+                view.delegate?.didNotReceiveToken(error: error)
+            }
+        }
     }
-    NotificationCenter.default.removeObserver(self, name: Notification.Name(self.notificationName), object: nil)
-    if let view = self.view as? NAGLoginView {
-      view.delegate?.didReceiveToken(code: (url.absoluteString))
-    }
-  }
 }
 
 extension WebViewViewController: NAGLoginViewDelegate {
-  func didReceiveToken(code: String) {
-      print(code)
-      self.dismiss(animated: true, completion: nil)
+    func didReceiveToken(code: String) {
+        delegate?.didReceiveCode(code: code)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func didNotReceiveToken(error: String) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
