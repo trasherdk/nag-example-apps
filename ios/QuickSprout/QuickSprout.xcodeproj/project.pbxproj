@@ -14,9 +14,9 @@
 		AF35F2CD2166161E0011ABA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF35F2CB2166161E0011ABA6 /* LaunchScreen.storyboard */; };
 		AF35F2D82166161E0011ABA6 /* QuickSproutDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2D72166161E0011ABA6 /* QuickSproutDemoTests.swift */; };
 		AF35F2E32166161E0011ABA6 /* QuickSproutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2E22166161E0011ABA6 /* QuickSproutUITests.swift */; };
-		AF4C4934219D738500B169DF /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; };
-		AF4C4935219D738500B169DF /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF4C4937219D843700B169DF /* QSTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C4936219D843700B169DF /* QSTransactionTableViewCell.swift */; };
+		AF4C4938219D993800B169DF /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; };
+		AF4C4939219D993800B169DF /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF59CF5921874514001BAB4F /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5821874514001BAB4F /* URLExtension.swift */; };
 		AF59CF5C218868AA001BAB4F /* QSAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5B218868AA001BAB4F /* QSAccount.swift */; };
 		AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */; };
@@ -46,13 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AF4C4932219D72F200B169DF /* Embed Frameworks */ = {
+		AF4C493A219D993800B169DF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AF4C4935219D738500B169DF /* NAGLoginSDK.framework in Embed Frameworks */,
+				AF4C4939219D993800B169DF /* NAGLoginSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF4C4934219D738500B169DF /* NAGLoginSDK.framework in Frameworks */,
+				AF4C4938219D993800B169DF /* NAGLoginSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +208,7 @@
 				AF35F2BB2166161D0011ABA6 /* Sources */,
 				AF35F2BC2166161D0011ABA6 /* Frameworks */,
 				AF35F2BD2166161D0011ABA6 /* Resources */,
-				AF4C4932219D72F200B169DF /* Embed Frameworks */,
+				AF4C493A219D993800B169DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
