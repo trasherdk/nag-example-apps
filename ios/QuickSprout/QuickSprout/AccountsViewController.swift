@@ -36,7 +36,6 @@ class AccountsViewController: UITableViewController {
         
         if let account = accounts?[indexPath.row] {
             QSAPI.transactions(accessToken: accessToken!, accountId: account.id!) { (transactions) in
-                print(transactions)
                 let viewController = UIStoryboard.instantiateTransactionsViewController()
                 viewController.transactions = transactions
                 self.navigationController?.pushViewController(viewController, animated: true)
