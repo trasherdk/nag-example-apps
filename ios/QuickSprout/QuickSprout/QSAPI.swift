@@ -54,7 +54,7 @@ public struct QSAPI {
                             }
                         }
                     } catch {
-                        print("ERROR! ERROR! ERROR! ERROR!")
+                        print(error)
                     }
                 }
                 }.resume()
@@ -166,7 +166,7 @@ public struct QSAPI {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         guard let httpBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
-            print("invalid JSON body")
+            print("Invalid JSON body")
             return nil
         }
         request.httpBody = httpBody
