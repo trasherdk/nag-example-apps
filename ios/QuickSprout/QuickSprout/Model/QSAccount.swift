@@ -9,18 +9,20 @@
 import Foundation
 
 struct QSAccount {
-
-  var providerId: String?
-  var name: String?
-  var iban: String?
-  var currency: String?
-  var bookedBalance: Double?
-  
-  init(providerId: String, name: String, iban: String, currency: String, bookedBalance: Double) {
-    self.providerId = providerId
-    self.name = name
-    self.iban = iban
-    self.currency = currency
-    self.bookedBalance = bookedBalance
-  }
+    
+    var id: String?
+    var providerId: String?
+    var name: String?
+    var iban: String?
+    var currency: String?
+    var bookedBalance: Double?
+    
+    init(id: String, providerId: String, name: String, iban: String, currency: String, bookedBalance: Double) {
+        self.id = id
+        self.providerId = providerId
+        self.name = name
+        self.iban = iban
+        self.currency = currency
+        self.bookedBalance = bookedBalance
+    }
 }

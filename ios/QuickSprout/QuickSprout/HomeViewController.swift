@@ -41,6 +41,7 @@ extension HomeViewController: HomeViewControllerDelegate {
                 (accounts) in
                 let viewController = UIStoryboard.instantiateAccountsViewController()
                 viewController.accounts = accounts
+                viewController.accessToken = accessToken
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }

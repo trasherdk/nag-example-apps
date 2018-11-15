@@ -14,4 +14,10 @@ extension UIStoryboard {
         let viewController = storyboard.instantiateViewController(withIdentifier: "AccountsViewController") as! AccountsViewController
         return viewController
     }
+    
+    static func instantiateTransactionsViewController() -> TransactionsTableViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TransactionsViewController") as! TransactionsTableViewController
+        return viewController
+    }
 }

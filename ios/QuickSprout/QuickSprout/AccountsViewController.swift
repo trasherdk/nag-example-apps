@@ -11,10 +11,10 @@ import UIKit
 class AccountsViewController: UITableViewController {
     
     var accounts: [QSAccount]? = []
+    var accessToken: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,15 +32,16 @@ class AccountsViewController: UITableViewController {
         return cell
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let account = accounts?[indexPath.row] {
+            QSAPI.transactions(accessToken: accessToken!, accountId: account.id!) { (transactions) in
+                print(transactions)
+                let viewController = UIStoryboard.instantiateTransactionsViewController()
+                viewController.transactions = transactions
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
 }
 
