@@ -1,5 +1,5 @@
 //
-//  QSAccountTableViewCell.swift
+//  QSTransactionTableViewCell.swift
 //  QuickSprout
 //
 //  Created by Brian Vestergaard Danielsen on 30/10/2018.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class QSAccountTableViewCell: UITableViewCell {
+class QSTransactionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var providerId: UILabel!
-    @IBOutlet weak var iban: UILabel!
+    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var currency: UILabel!
-    @IBOutlet weak var bookedBalance: UILabel!
+    @IBOutlet weak var amount: UILabel!
+    @IBOutlet weak var type: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,18 +23,16 @@ class QSAccountTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     
-    func populate(account: QSAccount) -> Void {
-        name.text = account.name
-        providerId.text = account.providerId
-        iban.text = account.iban
-        currency.text = account.currency
-        if let _bookedBalance = account.bookedBalance {
-            bookedBalance.text = String(format:"%.2f", _bookedBalance)
+    func populate(transaction: QSTransaction) -> Void {
+        name.text = transaction.text
+        date.text = transaction.date
+        currency.text = transaction.currency
+        if let _amount = transaction.amount {
+            amount.text = String(format:"%.2f", _amount)
         }
+        type.text = transaction.type
     }
-    
 }

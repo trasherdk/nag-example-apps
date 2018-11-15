@@ -14,6 +14,9 @@
 		AF35F2CD2166161E0011ABA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF35F2CB2166161E0011ABA6 /* LaunchScreen.storyboard */; };
 		AF35F2D82166161E0011ABA6 /* QuickSproutDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2D72166161E0011ABA6 /* QuickSproutDemoTests.swift */; };
 		AF35F2E32166161E0011ABA6 /* QuickSproutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2E22166161E0011ABA6 /* QuickSproutUITests.swift */; };
+		AF4C4937219D843700B169DF /* QSTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C4936219D843700B169DF /* QSTransactionTableViewCell.swift */; };
+		AF4C4938219D993800B169DF /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; };
+		AF4C4939219D993800B169DF /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF4C4933219D738500B169DF /* NAGLoginSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF59CF5921874514001BAB4F /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5821874514001BAB4F /* URLExtension.swift */; };
 		AF59CF5C218868AA001BAB4F /* QSAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5B218868AA001BAB4F /* QSAccount.swift */; };
 		AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */; };
@@ -21,8 +24,8 @@
 		AF59CF6421888B2A001BAB4F /* QSAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */; };
 		AF70A524216B3E29001D23FC /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70A523216B3E29001D23FC /* WebViewViewController.swift */; };
 		AF70A526216DF3D4001D23FC /* QSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70A525216DF3D4001D23FC /* QSAPI.swift */; };
-		AFD85C7B219AC072003F84F8 /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85C7A219AC072003F84F8 /* NAGLoginSDK.framework */; };
-		AFD85C7C219AC072003F84F8 /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85C7A219AC072003F84F8 /* NAGLoginSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AFD9317E219C4A3400099325 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */; };
+		AFD93180219C4BFF00099325 /* QSTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD9317F219C4BFF00099325 /* QSTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,13 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AFD85C7D219AC072003F84F8 /* Embed Frameworks */ = {
+		AF4C493A219D993800B169DF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AFD85C7C219AC072003F84F8 /* NAGLoginSDK.framework in Embed Frameworks */,
+				AF4C4939219D993800B169DF /* NAGLoginSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +73,8 @@
 		AF35F2DE2166161E0011ABA6 /* QuickSproutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickSproutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF35F2E22166161E0011ABA6 /* QuickSproutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSproutUITests.swift; sourceTree = "<group>"; };
 		AF35F2E42166161E0011ABA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF4C4933219D738500B169DF /* NAGLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NAGLoginSDK.framework; sourceTree = "<group>"; };
+		AF4C4936219D843700B169DF /* QSTransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		AF59CF5821874514001BAB4F /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		AF59CF5B218868AA001BAB4F /* QSAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAccount.swift; sourceTree = "<group>"; };
 		AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +82,8 @@
 		AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAccountTableViewCell.swift; sourceTree = "<group>"; };
 		AF70A523216B3E29001D23FC /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		AF70A525216DF3D4001D23FC /* QSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSAPI.swift; sourceTree = "<group>"; };
-		AFD85C7A219AC072003F84F8 /* NAGLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NAGLoginSDK.framework; sourceTree = "<group>"; };
+		AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
+		AFD9317F219C4BFF00099325 /* QSTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD85C7B219AC072003F84F8 /* NAGLoginSDK.framework in Frameworks */,
+				AF4C4938219D993800B169DF /* NAGLoginSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +115,7 @@
 		AF35F2B62166161D0011ABA6 = {
 			isa = PBXGroup;
 			children = (
-				AFD85C7A219AC072003F84F8 /* NAGLoginSDK.framework */,
+				AF4C4933219D738500B169DF /* NAGLoginSDK.framework */,
 				AF35F2C12166161D0011ABA6 /* QuickSprout */,
 				AF35F2D62166161E0011ABA6 /* QuickSproutTests */,
 				AF35F2E12166161E0011ABA6 /* QuickSproutUITests */,
@@ -132,6 +138,7 @@
 			children = (
 				AF35F2CE2166161E0011ABA6 /* Info.plist */,
 				AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */,
+				AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */,
 				AF35F2C22166161D0011ABA6 /* AppDelegate.swift */,
 				AF35F2C42166161D0011ABA6 /* HomeViewController.swift */,
 				AF70A525216DF3D4001D23FC /* QSAPI.swift */,
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				AF59CF5B218868AA001BAB4F /* QSAccount.swift */,
+				AFD9317F219C4BFF00099325 /* QSTransaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +183,7 @@
 		AF59CF6121888B02001BAB4F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF4C4936219D843700B169DF /* QSTransactionTableViewCell.swift */,
 				AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */,
 			);
 			path = Views;
@@ -199,7 +208,7 @@
 				AF35F2BB2166161D0011ABA6 /* Sources */,
 				AF35F2BC2166161D0011ABA6 /* Frameworks */,
 				AF35F2BD2166161D0011ABA6 /* Resources */,
-				AFD85C7D219AC072003F84F8 /* Embed Frameworks */,
+				AF4C493A219D993800B169DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,11 +330,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4C4937219D843700B169DF /* QSTransactionTableViewCell.swift in Sources */,
+				AFD9317E219C4A3400099325 /* TransactionsTableViewController.swift in Sources */,
 				AF70A524216B3E29001D23FC /* WebViewViewController.swift in Sources */,
 				AF70A526216DF3D4001D23FC /* QSAPI.swift in Sources */,
 				AF35F2C52166161D0011ABA6 /* HomeViewController.swift in Sources */,
 				AF59CF5C218868AA001BAB4F /* QSAccount.swift in Sources */,
 				AF35F2C32166161D0011ABA6 /* AppDelegate.swift in Sources */,
+				AFD93180219C4BFF00099325 /* QSTransaction.swift in Sources */,
 				AF59CF60218874D2001BAB4F /* UIStoryboardExtension.swift in Sources */,
 				AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */,
 				AF59CF5921874514001BAB4F /* URLExtension.swift in Sources */,
@@ -511,7 +523,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = QuickSprout/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +547,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = QuickSprout/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
