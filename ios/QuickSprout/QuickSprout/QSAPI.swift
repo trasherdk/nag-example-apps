@@ -110,7 +110,8 @@ public struct QSAPI {
     
     static func transactions(accessToken: String, accountId: String, completeBlock: @escaping ([QSTransaction]) -> Void) {
         let params = ["token" : accessToken]
-        if let request = buildPostRequest(endpoint: URL(string: BASE_URL + "/accounts/transactions?id=\(accountId)")!, body: params) {
+        let encodedAccountId = accountId.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        if let request = buildPostRequest(endpoint: URL(string: BASE_URL + "/accounts/transactions?id=\(encodedAccountId)"), body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
@@ -161,10 +162,15 @@ public struct QSAPI {
         }
     }
     
-    private static func buildPostRequest(endpoint: URL, body: [String: String]) -> URLRequest? {
+    private static func buildPostRequest(endpoint: URL?, body: [String: String]) -> URLRequest? {
+        guard let endpoint = endpoint else {
+            print("Invalid URL")
+            return nil
+        }
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
         guard let httpBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
             print("Invalid JSON body")
             return nil
