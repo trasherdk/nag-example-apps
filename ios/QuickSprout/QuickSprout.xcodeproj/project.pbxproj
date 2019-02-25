@@ -22,6 +22,8 @@
 		AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */; };
 		AF59CF60218874D2001BAB4F /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF5F218874D2001BAB4F /* UIStoryboardExtension.swift */; };
 		AF59CF6421888B2A001BAB4F /* QSAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */; };
+		AF686CE2219EAEAE0047AEF2 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF686CE1219EAEAE0047AEF2 /* URLUtils.swift */; };
+		AF686CE4219EB2640047AEF2 /* URLUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF686CE3219EB2640047AEF2 /* URLUtilsTests.swift */; };
 		AF70A524216B3E29001D23FC /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70A523216B3E29001D23FC /* WebViewViewController.swift */; };
 		AF70A526216DF3D4001D23FC /* QSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70A525216DF3D4001D23FC /* QSAPI.swift */; };
 		AFD9317E219C4A3400099325 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */; };
@@ -80,6 +82,8 @@
 		AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		AF59CF5F218874D2001BAB4F /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAccountTableViewCell.swift; sourceTree = "<group>"; };
+		AF686CE1219EAEAE0047AEF2 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
+		AF686CE3219EB2640047AEF2 /* URLUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtilsTests.swift; sourceTree = "<group>"; };
 		AF70A523216B3E29001D23FC /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		AF70A525216DF3D4001D23FC /* QSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSAPI.swift; sourceTree = "<group>"; };
 		AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
@@ -136,12 +140,12 @@
 		AF35F2C12166161D0011ABA6 /* QuickSprout */ = {
 			isa = PBXGroup;
 			children = (
+				AF686CE0219EAE3F0047AEF2 /* API */,
 				AF35F2CE2166161E0011ABA6 /* Info.plist */,
 				AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */,
 				AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */,
 				AF35F2C22166161D0011ABA6 /* AppDelegate.swift */,
 				AF35F2C42166161D0011ABA6 /* HomeViewController.swift */,
-				AF70A525216DF3D4001D23FC /* QSAPI.swift */,
 				AF70A523216B3E29001D23FC /* WebViewViewController.swift */,
 				AF35F2C92166161E0011ABA6 /* Assets.xcassets */,
 				AF35F2CB2166161E0011ABA6 /* LaunchScreen.storyboard */,
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				AF35F2D72166161E0011ABA6 /* QuickSproutDemoTests.swift */,
+				AF686CE3219EB2640047AEF2 /* URLUtilsTests.swift */,
 				AF35F2D92166161E0011ABA6 /* Info.plist */,
 			);
 			path = QuickSproutTests;
@@ -187,6 +192,15 @@
 				AF59CF6221888B2A001BAB4F /* QSAccountTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AF686CE0219EAE3F0047AEF2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AF70A525216DF3D4001D23FC /* QSAPI.swift */,
+				AF686CE1219EAEAE0047AEF2 /* URLUtils.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		AFD85C7E219ADBEB003F84F8 /* Extension */ = {
@@ -341,6 +355,7 @@
 				AF59CF60218874D2001BAB4F /* UIStoryboardExtension.swift in Sources */,
 				AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */,
 				AF59CF5921874514001BAB4F /* URLExtension.swift in Sources */,
+				AF686CE2219EAEAE0047AEF2 /* URLUtils.swift in Sources */,
 				AF59CF6421888B2A001BAB4F /* QSAccountTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF35F2D82166161E0011ABA6 /* QuickSproutDemoTests.swift in Sources */,
+				AF686CE4219EB2640047AEF2 /* URLUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

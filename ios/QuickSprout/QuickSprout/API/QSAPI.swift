@@ -110,8 +110,8 @@ public struct QSAPI {
     
     static func transactions(accessToken: String, accountId: String, completeBlock: @escaping ([QSTransaction]) -> Void) {
         let params = ["token" : accessToken]
-        let encodedAccountId = accountId.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        if let request = buildPostRequest(endpoint: URL(string: BASE_URL + "/accounts/transactions?id=\(encodedAccountId)"), body: params) {
+        
+        if let request = buildPostRequest(endpoint: URLUtils.url(url: BASE_URL + "/accounts/transactions?id=\(accountId)"), body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
