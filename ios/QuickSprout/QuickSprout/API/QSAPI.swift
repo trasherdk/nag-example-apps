@@ -121,15 +121,15 @@ public struct QSAPI {
                             if let transactions = json["transactions"] as? [Any] {
                                 for transaction in transactions {
                                     if let transaction = transaction as? [String: Any] {
-                                        var transactionItem = QSTransaction(id: "", date: "", creationDate: "", text: "", type: "", amount: 0, currency: "", state: "")
+                                        var transactionItem = QSTransaction(id: "", date: "", creationDateTime: "", text: "", type: "", amount: 0, currency: "", state: "")
                                         if let id = transaction["id"] as? String {
                                             transactionItem.id = id
                                         }
                                         if let date = transaction["date"] as? String {
                                             transactionItem.date = date
                                         }
-                                        if let creationDate = transaction["creationDate"] as? String {
-                                            transactionItem.creationDate = creationDate
+                                        if let creationDateTime = transaction["creationDateTime"] as? String {
+                                            transactionItem.creationDateTime = creationDateTime
                                         }
                                         if let text = transaction["text"] as? String {
                                             transactionItem.text = text
