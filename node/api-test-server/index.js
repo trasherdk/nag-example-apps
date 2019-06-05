@@ -69,8 +69,8 @@ const server = http.createServer((request, result) => {
       payload += data;
     }).on('end', () => {
       payload = JSON.parse(payload);
-      console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'))
-      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts'), res => {
+      console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts'))
+      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts'), res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
@@ -97,8 +97,8 @@ const server = http.createServer((request, result) => {
       payload += data;
     }).on('end', () => {
       payload = JSON.parse(payload);
-      console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts/' + id + '/transactions'))
-      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v1/accounts/' + id + '/transactions'), res => {
+      console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts/' + id + '/transactions'))
+      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts/' + id + '/transactions'), res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
