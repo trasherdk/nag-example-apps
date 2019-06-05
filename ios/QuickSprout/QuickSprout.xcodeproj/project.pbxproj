@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A83D66C522A7E35C0070BF22 /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
 		A83D66C622A7E41B0070BF22 /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
+		A83D66C822A7FA410070BF22 /* QSAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C722A7FA410070BF22 /* QSAmount.swift */; };
+		A83D66CA22A80ECB0070BF22 /* QSGetAccountsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */; };
+		A83D66CC22A80F8B0070BF22 /* QSAccountNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */; };
 		AF35F2C32166161D0011ABA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2C22166161D0011ABA6 /* AppDelegate.swift */; };
 		AF35F2C52166161D0011ABA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF35F2C42166161D0011ABA6 /* HomeViewController.swift */; };
 		AF35F2C82166161D0011ABA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF35F2C62166161D0011ABA6 /* Main.storyboard */; };
@@ -63,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NAGLoginSDK.framework; sourceTree = "<group>"; };
+		A83D66C722A7FA410070BF22 /* QSAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAmount.swift; sourceTree = "<group>"; };
+		A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSGetAccountsResponse.swift; sourceTree = "<group>"; };
+		A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAccountNumber.swift; sourceTree = "<group>"; };
 		AF35F2BF2166161D0011ABA6 /* QuickSprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickSprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF35F2C22166161D0011ABA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF35F2C42166161D0011ABA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +187,9 @@
 			children = (
 				AF59CF5B218868AA001BAB4F /* QSAccount.swift */,
 				AFD9317F219C4BFF00099325 /* QSTransaction.swift */,
+				A83D66C722A7FA410070BF22 /* QSAmount.swift */,
+				A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */,
+				A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,10 +360,13 @@
 				AF35F2C52166161D0011ABA6 /* HomeViewController.swift in Sources */,
 				AF59CF5C218868AA001BAB4F /* QSAccount.swift in Sources */,
 				AF35F2C32166161D0011ABA6 /* AppDelegate.swift in Sources */,
+				A83D66C822A7FA410070BF22 /* QSAmount.swift in Sources */,
 				AFD93180219C4BFF00099325 /* QSTransaction.swift in Sources */,
 				AF59CF60218874D2001BAB4F /* UIStoryboardExtension.swift in Sources */,
+				A83D66CC22A80F8B0070BF22 /* QSAccountNumber.swift in Sources */,
 				AF59CF5E218873E2001BAB4F /* AccountsViewController.swift in Sources */,
 				AF59CF5921874514001BAB4F /* URLExtension.swift in Sources */,
+				A83D66CA22A80ECB0070BF22 /* QSGetAccountsResponse.swift in Sources */,
 				AF686CE2219EAEAE0047AEF2 /* URLUtils.swift in Sources */,
 				AF59CF6421888B2A001BAB4F /* QSAccountTableViewCell.swift in Sources */,
 			);

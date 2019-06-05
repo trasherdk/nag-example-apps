@@ -61,47 +61,29 @@ public struct QSAPI {
         }
     }
     
-    static func accounts(accessToken: String, completionBlock: @escaping ([QSAccount]) -> Void) {
+    static func accounts(accessToken: String, completionBlock: @escaping (QSGetAccountsResponse) -> Void) {
         let params = ["token" : accessToken]
         if let request = buildPostRequest(endpoint: URL(string: BASE_URL + "/accounts")!, body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
-                    do {
-                        var accountItems: [QSAccount] = []
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let accounts = json["accounts"] as? [Any] {
-                                for account in accounts {
-                                    if let _account = account as? [String: Any] {
-                                        var accountItem = QSAccount(id: "", providerId: "", name: "", iban: "", currency: "", bookedBalance: 0)
-                                        if let _id = _account["id"] as? String {
-                                            accountItem.id = _id
-                                        }
-                                        if let _providerId = _account["providerId"] as? String {
-                                            accountItem.providerId = _providerId
-                                        }
-                                        if let _name = _account["name"] as? String {
-                                            accountItem.name = _name
-                                        }
-                                        if let _number = _account["number"] as? [String: Any], let _iban = _number["iban"] as? String {
-                                            accountItem.iban = _iban
-                                        }
-                                        if let _currency = _account["currency"] as? String {
-                                            accountItem.currency = _currency
-                                        }
-                                        if let _bookedBalance = _account["bookedBalance"] as? Double {
-                                            accountItem.bookedBalance = _bookedBalance
-                                        }
-                                        accountItems.append(accountItem)
-                                    }
+                    do {                        
+                        let jsonString = String(decoding: data, as: UTF8.self)
+                        let jsonData = jsonString.data(using: .utf8)
+                        
+                        if let jsonData = jsonData {
+                            let decoder = JSONDecoder()
+                            
+                            do {
+                                let accountsResponse = try decoder.decode(QSGetAccountsResponse.self, from: jsonData)
+                                
+                                DispatchQueue.main.async {
+                                    completionBlock(accountsResponse);
                                 }
+                            } catch {
+                                print(error.localizedDescription)
                             }
                         }
-                        DispatchQueue.main.async {
-                            completionBlock(accountItems);
-                        }
-                    } catch {
-                        print(error)
                     }
                 }
                 }.resume()
@@ -121,7 +103,7 @@ public struct QSAPI {
                             if let transactions = json["transactions"] as? [Any] {
                                 for transaction in transactions {
                                     if let transaction = transaction as? [String: Any] {
-                                        var transactionItem = QSTransaction(id: "", date: "", creationDateTime: "", text: "", type: "", amount: 0, currency: "", state: "")
+                                        var transactionItem = QSTransaction()
                                         if let id = transaction["id"] as? String {
                                             transactionItem.id = id
                                         }
@@ -137,9 +119,9 @@ public struct QSAPI {
                                         if let type = transaction["type"] as? String {
                                             transactionItem.type = type
                                         }
-                                        if let amount = transaction["amount"] as? Double {
-                                            transactionItem.amount = amount
-                                        }
+                                        //if let _amountAsString = transaction["amount"] as? [String: Any] {
+                                        //    transactionItem.amount = QSAmount.parseFromJson(json: _amountAsString)
+                                        //}
                                         if let currency = transaction["currency"] as? String {
                                             transactionItem.currency = currency
                                         }

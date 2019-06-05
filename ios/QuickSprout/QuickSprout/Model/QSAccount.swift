@@ -8,21 +8,11 @@
 
 import Foundation
 
-struct QSAccount {
-    
-    var id: String?
-    var providerId: String?
-    var name: String?
-    var iban: String?
-    var currency: String?
-    var bookedBalance: Double?
-    
-    init(id: String, providerId: String, name: String, iban: String, currency: String, bookedBalance: Double) {
-        self.id = id
-        self.providerId = providerId
-        self.name = name
-        self.iban = iban
-        self.currency = currency
-        self.bookedBalance = bookedBalance
-    }
+struct QSAccount : Codable {
+    let id: String?
+    let providerId: String?
+    let name: String?
+    let number: QSAccountNumber?
+    var bookedBalance: QSAmount?
+    var availableBalance: QSAmount?
 }

@@ -38,9 +38,9 @@ extension HomeViewController: HomeViewControllerDelegate {
         QSAPI.tokens(code: code) {
             (accessToken) in
             QSAPI.accounts(accessToken: accessToken) {
-                (accounts) in
+                (accountsResponse) in
                 let viewController = UIStoryboard.instantiateAccountsViewController()
-                viewController.accounts = accounts
+                viewController.accounts = accountsResponse.accounts
                 viewController.accessToken = accessToken
                 self.navigationController?.pushViewController(viewController, animated: true)
             }

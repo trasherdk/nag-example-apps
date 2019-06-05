@@ -31,7 +31,7 @@ class QSTransactionTableViewCell: UITableViewCell {
         date.text = transaction.date
         currency.text = transaction.currency
         if let _amount = transaction.amount {
-            amount.text = String(format:"%.2f", _amount)
+            amount.text = String(format:"%.2f", _amount.value)            
         }
         type.text = transaction.type
     }
