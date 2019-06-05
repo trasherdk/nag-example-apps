@@ -124,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A83D66CF22A851B50070BF22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF35F2C42166161D0011ABA6 /* HomeViewController.swift */,
+				AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */,
+				AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */,
+				AF70A523216B3E29001D23FC /* WebViewViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		AF35F2B62166161D0011ABA6 = {
 			isa = PBXGroup;
 			children = (
@@ -150,11 +161,8 @@
 			children = (
 				AF686CE0219EAE3F0047AEF2 /* API */,
 				AF35F2CE2166161E0011ABA6 /* Info.plist */,
-				AF59CF5D218873E2001BAB4F /* AccountsViewController.swift */,
-				AFD9317D219C4A3400099325 /* TransactionsTableViewController.swift */,
 				AF35F2C22166161D0011ABA6 /* AppDelegate.swift */,
-				AF35F2C42166161D0011ABA6 /* HomeViewController.swift */,
-				AF70A523216B3E29001D23FC /* WebViewViewController.swift */,
+				A83D66CF22A851B50070BF22 /* Controllers */,
 				AF35F2C92166161E0011ABA6 /* Assets.xcassets */,
 				AF35F2CB2166161E0011ABA6 /* LaunchScreen.storyboard */,
 				AF35F2C62166161D0011ABA6 /* Main.storyboard */,
