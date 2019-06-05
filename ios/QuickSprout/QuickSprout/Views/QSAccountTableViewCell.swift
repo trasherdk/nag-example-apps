@@ -33,6 +33,7 @@ class QSAccountTableViewCell: UITableViewCell {
         iban.text = account.number?.iban ?? "-"
         if let _bookedBalance = account.bookedBalance {
             bookedBalance.text = String(format:"%.2f", _bookedBalance.value)
+            currency.text = _bookedBalance.currency
         }
     }
 }

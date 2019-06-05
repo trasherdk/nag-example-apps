@@ -67,7 +67,7 @@ public struct QSAPI {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
-                    do {                        
+                    do {
                         let jsonString = String(decoding: data, as: UTF8.self)
                         let jsonData = jsonString.data(using: .utf8)
                         
@@ -90,7 +90,7 @@ public struct QSAPI {
         }
     }
     
-    static func transactions(accessToken: String, accountId: String, completeBlock: @escaping ([QSTransaction]) -> Void) {
+    static func transactions(accessToken: String, accountId: String, completionBlock: @escaping (QSGetTransactionsResponse) -> Void) {
         let params = ["token" : accessToken]
         
         if let request = buildPostRequest(endpoint: URLUtils.url(url: BASE_URL + "/accounts/transactions?id=\(accountId)"), body: params) {
@@ -98,51 +98,28 @@ public struct QSAPI {
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
                     do {
-                        var transactionsItems: [QSTransaction] = []
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let transactions = json["transactions"] as? [Any] {
-                                for transaction in transactions {
-                                    if let transaction = transaction as? [String: Any] {
-                                        var transactionItem = QSTransaction()
-                                        if let id = transaction["id"] as? String {
-                                            transactionItem.id = id
-                                        }
-                                        if let date = transaction["date"] as? String {
-                                            transactionItem.date = date
-                                        }
-                                        if let creationDateTime = transaction["creationDateTime"] as? String {
-                                            transactionItem.creationDateTime = creationDateTime
-                                        }
-                                        if let text = transaction["text"] as? String {
-                                            transactionItem.text = text
-                                        }
-                                        if let type = transaction["type"] as? String {
-                                            transactionItem.type = type
-                                        }
-                                        //if let _amountAsString = transaction["amount"] as? [String: Any] {
-                                        //    transactionItem.amount = QSAmount.parseFromJson(json: _amountAsString)
-                                        //}
-                                        if let currency = transaction["currency"] as? String {
-                                            transactionItem.currency = currency
-                                        }
-                                        if let state = transaction["state"] as? String {
-                                            transactionItem.state = state
-                                        }
-                                        transactionsItems.append(transactionItem)
-                                    }
+                        let jsonString = String(decoding: data, as: UTF8.self)
+                        let jsonData = jsonString.data(using: .utf8)
+                        
+                        if let jsonData = jsonData {
+                            let decoder = JSONDecoder()
+                            
+                            do {
+                                let transactionsResponse = try decoder.decode(QSGetTransactionsResponse.self, from: jsonData)
+                                
+                                DispatchQueue.main.async {
+                                    completionBlock(transactionsResponse);
                                 }
+                            } catch {
+                                print(error.localizedDescription)
                             }
                         }
-                        DispatchQueue.main.async {
-                            completeBlock(transactionsItems)
-                        }
-                    } catch {
-                        print(error)
                     }
                 }
                 }.resume()
         }
     }
+    
     
     private static func buildPostRequest(endpoint: URL?, body: [String: String]) -> URLRequest? {
         guard let endpoint = endpoint else {

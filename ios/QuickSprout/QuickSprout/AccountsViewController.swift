@@ -35,9 +35,9 @@ class AccountsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let account = accounts?[indexPath.row] {
-            QSAPI.transactions(accessToken: accessToken!, accountId: account.id!) { (transactions) in
+            QSAPI.transactions(accessToken: accessToken!, accountId: account.id!) { (transactionsResponse) in
                 let viewController = UIStoryboard.instantiateTransactionsViewController()
-                viewController.transactions = transactions
+                viewController.transactions = transactionsResponse.transactions
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }

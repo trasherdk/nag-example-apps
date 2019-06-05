@@ -17,6 +17,5 @@ struct QSTransaction : Codable {
     var amount: QSAmount?
     var balance: QSAmount?
     var type: String?
-    var currency: String?
     var state: String?
 }
