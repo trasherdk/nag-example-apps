@@ -116,7 +116,7 @@ public struct QSAPI {
                         }
                     }
                 }
-                }.resume()
+            }.resume()
         }
     }
     
