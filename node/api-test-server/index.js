@@ -5,7 +5,7 @@ require('dotenv').config()
 
 const HOSTNAME = '127.0.0.1';
 const PORT = 3000;
-const NAG_HOST = 'api.nordicapigateway.com'
+const NAG_HOST = 'nag-api-test.azurewebsites.net'
 const NAG_PORT = 443
 
 const server = http.createServer((request, result) => {
@@ -92,13 +92,21 @@ const server = http.createServer((request, result) => {
     var url_parts = url.parse(request.url, true);
     var query = url_parts.query;
     var id = query.id;
+    var pagingToken = query.pagingToken
+    console.log('pagingToken: ' + pagingToken)
+    var fromDate = '2010-01-01'
     let payload = ''
     request.on('data', (data) => {
       payload += data;
     }).on('end', () => {
       payload = JSON.parse(payload);
-      console.log(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts/' + id + '/transactions'))
-      let get = https.request(getOptions(NAG_HOST, NAG_PORT, payload.token, '/v2/accounts/' + id + '/transactions'), res => {
+      geturl = '/v2/accounts/' + id + '/transactions?fromDate=' + fromDate
+      if(pagingToken != null) {
+        geturl += '&pagingToken=' + pagingToken
+      }
+      options = getOptions(NAG_HOST, NAG_PORT, payload.token, geturl)
+      console.log()
+      let get = https.request(options, res => {
         var chunks = []
         res.on('data', (chunk) => {
           chunks.push(chunk);
