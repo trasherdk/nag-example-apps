@@ -90,10 +90,15 @@ public struct QSAPI {
         }
     }
     
-    static func transactions(accessToken: String, accountId: String, completionBlock: @escaping (QSGetTransactionsResponse) -> Void) {
+    static func transactions(accessToken: String, accountId: String, pagingToken: String?, completionBlock: @escaping (QSGetTransactionsResponse) -> Void) {
         let params = ["token" : accessToken]
         
-        if let request = buildPostRequest(endpoint: URLUtils.url(url: BASE_URL + "/accounts/transactions?id=\(accountId)"), body: params) {
+        var url = BASE_URL + "/accounts/transactions?id=\(accountId)"
+        if let actualPagingToken = pagingToken {
+            url += "&pagingToken=" + actualPagingToken
+        }
+        
+        if let request = buildPostRequest(endpoint: URLUtils.url(url: url), body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
