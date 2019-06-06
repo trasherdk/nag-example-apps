@@ -6,27 +6,27 @@ Sample apps showcasing the possible use cases with the Nordic API Gateway SDK.
 
 The sample app is called QuickSprout and is a app that enables users to get an overview of their savings. It is still a work in progress. For now it is only possible to authenticate with banks and list the user's accounts.
 
-Find the Swagger documentation at https://api.nordicapigateway.com/swagger/index.html.
+Find the Swagger documentation at https://api.nordicapigateway.com/docs/index.html.
 
 ### Sign up for Nordic API Gateway
 
 1. Go to https://www.nordicapigateway.com/ and sign up
-2. Obtain your `Client ID` and `Client Secret` (find them at https://developer.nordicapigateway.com/keys)
+2. Obtain your `Client ID` and `Client Secret` (find them at https://developer.nordicapigateway.com/apps)
 
 ### Setup Node project
 
 If you have not already implemented services to communicate with Nordic API Gateway, you can use the test server implementation found in `node/api-test-server`.
 
 1. Open the project in your favorite JavaScript editor (we use Visual Studio Code at Spiir)
-2. Create an environment file and paste the following code into it:
+2. Create an environment file (`.env`) and paste the following code into it:
 
 ```
 CLIENT_ID=<Client ID>
 CLIENT_SECRET=<Client ID>
 ```
 
-- `CLIENT_ID` – This variable contains the client ID (found at https://developer.nordicapigateway.com/keys)
-- `CLIENT_SECRET` – This variable contains the client secret (found at https://developer.nordicapigateway.com/keys)
+- `CLIENT_ID` – This variable contains the client ID (found at https://developer.nordicapigateway.com/apps)
+- `CLIENT_SECRET` – This variable contains the client secret (found at https://developer.nordicapigateway.com/apps)
 
 3. Run `npm install` and then `node index.js` to start the server.
 
@@ -34,7 +34,7 @@ This simple server returns an URL that is used to load the authentication flow f
 
 The server implements the following endpoints:
 
-### init ([documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Initialize))
+### init ([documentation](https://api.nordicapigateway.com/docs/index.html#operation/Initialize))
 
 ```
 curl -X POST \
@@ -43,7 +43,7 @@ curl -X POST \
   -d '{"redirectUrl": <REDIRECT_URL>}'
 ```
 
-### tokens ([documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Authentication_Tokens))
+### tokens ([documentation](https://api.nordicapigateway.com/docs/index.html#operation/Tokens))
 
 ```
 curl -X POST \
@@ -52,7 +52,7 @@ curl -X POST \
   -d '{"code": <CODE>}'
 ```
 
-### tokens ([documentation](https://api.nordicapigateway.com/swagger/index.html?url=/swagger/v1/swagger.json#operation/Account_GetAccounts))
+### tokens ([documentation](https://api.nordicapigateway.com/docs/index.html#operation/GetAccountsV2))
 
 ```
 curl -X POST \
@@ -80,7 +80,7 @@ curl -X POST \
 
 MIT License
 
-Copyright (c) 2018 Spiir A/S
+Copyright (c) 2019 Spiir A/S
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
