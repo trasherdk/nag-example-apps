@@ -52,7 +52,7 @@ curl -X POST \
   -d '{"code": <CODE>}'
 ```
 
-### tokens ([documentation](https://api.nordicapigateway.com/docs/index.html#operation/GetAccounts.v2))
+### tokens ([documentation](https://api.nordicapigateway.com/docs/index.html#operation/GetAccountsV2))
 
 ```
 curl -X POST \
