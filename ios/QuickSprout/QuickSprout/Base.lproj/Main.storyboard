@@ -196,7 +196,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QFh-gw-9PD">
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QFh-gw-9PD">
                             <rect key="frame" x="0.0" y="106" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Fetch more"/>
@@ -280,7 +280,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="fetchMore" destination="QFh-gw-9PD" id="8RK-Q4-z0w"/>
+                        <outlet property="fetchMoreButton" destination="QFh-gw-9PD" id="8RK-Q4-z0w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d6-7e-dYu" userLabel="First Responder" sceneMemberID="firstResponder"/>

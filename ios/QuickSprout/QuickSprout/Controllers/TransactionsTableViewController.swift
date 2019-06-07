@@ -14,21 +14,22 @@ class TransactionsTableViewController: UITableViewController {
     var transactions: [QSTransaction]?
     var accessToken: String?
     var accountId: String?
+    var pagingToken: String? {
+        get {
+            return latestTransactionsResponse?.pagingToken
+        }
+    }
     
-    @IBOutlet weak var fetchMore: UIButton!
+    @IBOutlet weak var fetchMoreButton: UIButton!
     
     @IBAction func fetchMorePressed(_ sender: Any) {
-        debugPrint("fetch more with paging token: " + (latestTransactionsResponse?.pagingToken ?? "-"))
-        
-        if let pagingToken = latestTransactionsResponse?.pagingToken {
+        if let pagingToken = self.pagingToken {
             QSAPI.transactions(accessToken: accessToken!, accountId: accountId!, pagingToken: pagingToken) { (transactionsResponse) in
                 self.latestTransactionsResponse = transactionsResponse
                 self.transactions! += transactionsResponse.transactions
+                self.tableView.reloadData()
             }
         }
-        
-        debugPrint("fetched!")
-        DispatchQueue.main.async { self.tableView.reloadData() }
     }
     
     func setResponse(response: QSGetTransactionsResponse) {
@@ -48,6 +49,7 @@ class TransactionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionTableViewCell", for: indexPath) as! QSTransactionTableViewCell
         
         if let transactions = self.transactions {
@@ -56,7 +58,7 @@ class TransactionsTableViewController: UITableViewController {
         }
         
         // Only enable the fetch more button if a paging token is present
-        fetchMore.isEnabled = latestTransactionsResponse?.pagingToken != nil
+        fetchMoreButton.isEnabled = self.pagingToken != nil
         
         return cell
     }
