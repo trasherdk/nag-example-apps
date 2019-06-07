@@ -51,7 +51,7 @@ class TransactionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionTableViewCell", for: indexPath) as! QSTransactionTableViewCell
-        
+                
         if let transactions = self.transactions {
             let transaction = transactions[indexPath.row]
             cell.populate(transaction: transaction)

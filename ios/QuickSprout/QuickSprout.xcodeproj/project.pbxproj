@@ -301,13 +301,16 @@
 				TargetAttributes = {
 					AF35F2BE2166161D0011ABA6 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					AF35F2D22166161E0011ABA6 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = AF35F2BE2166161D0011ABA6;
 					};
 					AF35F2DD2166161E0011ABA6 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = AF35F2BE2166161D0011ABA6;
 					};
 				};
@@ -571,7 +574,7 @@
 				NAG_API_URL = "http://localhost:3000/init";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -595,7 +598,7 @@
 				NAG_API_URL = "http://localhost:3000/init";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -615,7 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSproutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickSprout.app/QuickSprout";
 			};
@@ -636,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSproutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickSprout.app/QuickSprout";
 			};
@@ -656,7 +659,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSproutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QuickSprout;
 			};
@@ -676,7 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSproutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QuickSprout;
 			};
