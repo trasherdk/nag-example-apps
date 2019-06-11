@@ -5,7 +5,7 @@ require('dotenv').config()
 
 const HOSTNAME = '127.0.0.1';
 const PORT = 3000;
-const NAG_HOST = 'nag-api-test.azurewebsites.net'
+const NAG_HOST = 'api.nordicapigateway.com'
 const NAG_PORT = 443
 
 const server = http.createServer((request, result) => {
