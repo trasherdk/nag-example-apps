@@ -24,11 +24,12 @@ class AccountAdapter(private val data: JSONArray, private val accessToken: Strin
     }
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
-        holder.container.providerId.text = (data[position] as JSONObject).get("providerId").toString()
-        holder.container.name.text = (data[position] as JSONObject).get("name").toString()
-        holder.container.iban.text = ((data[position] as JSONObject).get("number") as JSONObject).getString("iban")
-        holder.container.currency.text = (data[position] as JSONObject).get("currency").toString()
-        holder.container.booked.text = (data[position] as JSONObject).get("bookedBalance").toString()
+        val account = data[position] as JSONObject
+        holder.container.providerId.text = account.get("providerId").toString()
+        holder.container.name.text = account.get("name").toString()
+        holder.container.iban.text = (account.get("number") as JSONObject).getString("iban")
+        holder.container.bookedCurrency.text = (account.get("bookedBalance") as JSONObject).getString("currency")
+        holder.container.bookedAmount.text = (account.get("bookedBalance") as JSONObject).getString("value")
         holder.container.setOnClickListener {
             val intent = Intent(holder.container.context, TransactionsActivity::class.java).apply {
                 putExtra("id", (this@AccountAdapter.data[position] as JSONObject).get("id").toString())
