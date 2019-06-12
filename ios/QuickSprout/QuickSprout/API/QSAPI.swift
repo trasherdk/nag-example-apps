@@ -61,106 +61,70 @@ public struct QSAPI {
         }
     }
     
-    static func accounts(accessToken: String, completionBlock: @escaping ([QSAccount]) -> Void) {
+    static func accounts(accessToken: String, completionBlock: @escaping (QSGetAccountsResponse) -> Void) {
         let params = ["token" : accessToken]
         if let request = buildPostRequest(endpoint: URL(string: BASE_URL + "/accounts")!, body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
                     do {
-                        var accountItems: [QSAccount] = []
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let accounts = json["accounts"] as? [Any] {
-                                for account in accounts {
-                                    if let _account = account as? [String: Any] {
-                                        var accountItem = QSAccount(id: "", providerId: "", name: "", iban: "", currency: "", bookedBalance: 0)
-                                        if let _id = _account["id"] as? String {
-                                            accountItem.id = _id
-                                        }
-                                        if let _providerId = _account["providerId"] as? String {
-                                            accountItem.providerId = _providerId
-                                        }
-                                        if let _name = _account["name"] as? String {
-                                            accountItem.name = _name
-                                        }
-                                        if let _number = _account["number"] as? [String: Any], let _iban = _number["iban"] as? String {
-                                            accountItem.iban = _iban
-                                        }
-                                        if let _currency = _account["currency"] as? String {
-                                            accountItem.currency = _currency
-                                        }
-                                        if let _bookedBalance = _account["bookedBalance"] as? Double {
-                                            accountItem.bookedBalance = _bookedBalance
-                                        }
-                                        accountItems.append(accountItem)
-                                    }
+                        let jsonString = String(decoding: data, as: UTF8.self)
+                        let jsonData = jsonString.data(using: .utf8)
+                        
+                        if let jsonData = jsonData {
+                            let decoder = JSONDecoder()
+                            
+                            do {
+                                let accountsResponse = try decoder.decode(QSGetAccountsResponse.self, from: jsonData)
+                                
+                                DispatchQueue.main.async {
+                                    completionBlock(accountsResponse);
                                 }
+                            } catch {
+                                print(error.localizedDescription)
                             }
                         }
-                        DispatchQueue.main.async {
-                            completionBlock(accountItems);
-                        }
-                    } catch {
-                        print(error)
                     }
                 }
                 }.resume()
         }
     }
     
-    static func transactions(accessToken: String, accountId: String, completeBlock: @escaping ([QSTransaction]) -> Void) {
+    static func transactions(accessToken: String, accountId: String, pagingToken: String?, completionBlock: @escaping (QSGetTransactionsResponse) -> Void) {
         let params = ["token" : accessToken]
         
-        if let request = buildPostRequest(endpoint: URLUtils.url(url: BASE_URL + "/accounts/transactions?id=\(accountId)"), body: params) {
+        var url = BASE_URL + "/accounts/transactions?id=\(accountId)"
+        if let actualPagingToken = pagingToken {
+            url += "&pagingToken=" + actualPagingToken
+        }
+        
+        if let request = buildPostRequest(endpoint: URLUtils.url(url: url), body: params) {
             let session = URLSession.shared
             session.dataTask(with: request) { (data, response, error) in
                 if let data = data {
                     do {
-                        var transactionsItems: [QSTransaction] = []
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let transactions = json["transactions"] as? [Any] {
-                                for transaction in transactions {
-                                    if let transaction = transaction as? [String: Any] {
-                                        var transactionItem = QSTransaction(id: "", date: "", creationDate: "", text: "", type: "", amount: 0, currency: "", state: "")
-                                        if let id = transaction["id"] as? String {
-                                            transactionItem.id = id
-                                        }
-                                        if let date = transaction["date"] as? String {
-                                            transactionItem.date = date
-                                        }
-                                        if let creationDate = transaction["creationDate"] as? String {
-                                            transactionItem.creationDate = creationDate
-                                        }
-                                        if let text = transaction["text"] as? String {
-                                            transactionItem.text = text
-                                        }
-                                        if let type = transaction["type"] as? String {
-                                            transactionItem.type = type
-                                        }
-                                        if let amount = transaction["amount"] as? Double {
-                                            transactionItem.amount = amount
-                                        }
-                                        if let currency = transaction["currency"] as? String {
-                                            transactionItem.currency = currency
-                                        }
-                                        if let state = transaction["state"] as? String {
-                                            transactionItem.state = state
-                                        }
-                                        transactionsItems.append(transactionItem)
-                                    }
+                        let jsonString = String(decoding: data, as: UTF8.self)
+                        let jsonData = jsonString.data(using: .utf8)
+                        
+                        if let jsonData = jsonData {
+                            let decoder = JSONDecoder()
+                            
+                            do {
+                                let transactionsResponse = try decoder.decode(QSGetTransactionsResponse.self, from: jsonData)
+                                
+                                DispatchQueue.main.async {
+                                    completionBlock(transactionsResponse);
                                 }
+                            } catch {
+                                print(error.localizedDescription)
                             }
                         }
-                        DispatchQueue.main.async {
-                            completeBlock(transactionsItems)
-                        }
-                    } catch {
-                        print(error)
                     }
                 }
-                }.resume()
+            }.resume()
         }
     }
+    
     
     private static func buildPostRequest(endpoint: URL?, body: [String: String]) -> URLRequest? {
         guard let endpoint = endpoint else {

@@ -30,11 +30,10 @@ class QSAccountTableViewCell: UITableViewCell {
     func populate(account: QSAccount) -> Void {
         name.text = account.name
         providerId.text = account.providerId
-        iban.text = account.iban
-        currency.text = account.currency
+        iban.text = account.number?.iban ?? "-"
         if let _bookedBalance = account.bookedBalance {
-            bookedBalance.text = String(format:"%.2f", _bookedBalance)
+            bookedBalance.text = String(format:"%.2f", _bookedBalance.value)
+            currency.text = _bookedBalance.currency
         }
     }
-    
 }

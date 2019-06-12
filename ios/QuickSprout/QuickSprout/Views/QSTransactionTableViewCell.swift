@@ -27,12 +27,10 @@ class QSTransactionTableViewCell: UITableViewCell {
     }
     
     func populate(transaction: QSTransaction) -> Void {
-        name.text = transaction.text
-        date.text = transaction.date
-        currency.text = transaction.currency
-        if let _amount = transaction.amount {
-            amount.text = String(format:"%.2f", _amount)
-        }
-        type.text = transaction.type
-    }
+        name.text = transaction.text!
+        date.text = transaction.date!
+        type.text = transaction.type!        
+        amount.text = String(format:"%.2f", transaction.amount!.value)
+        currency.text = transaction.amount!.currency
+    }    
 }
