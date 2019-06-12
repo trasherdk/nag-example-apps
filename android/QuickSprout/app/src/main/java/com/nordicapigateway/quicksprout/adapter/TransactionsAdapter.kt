@@ -10,7 +10,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 
-class TransactionsAdapter(private val data: JSONArray) : RecyclerView.Adapter<TransactionsAdapter.TransactionsViewHolder>() {
+class TransactionsAdapter(private var data: JSONArray) : RecyclerView.Adapter<TransactionsAdapter.TransactionsViewHolder>() {
 
     class TransactionsViewHolder(
         val container: LinearLayout)
@@ -35,4 +35,7 @@ class TransactionsAdapter(private val data: JSONArray) : RecyclerView.Adapter<Tr
 
     override fun getItemCount() = data.length()
 
+    fun setData(data: JSONArray) {
+        this.data = data
+    }
 }
