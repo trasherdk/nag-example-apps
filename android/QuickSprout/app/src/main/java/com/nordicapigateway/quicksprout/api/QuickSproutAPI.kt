@@ -82,11 +82,13 @@ class QuickSproutAPI constructor(activity: AppCompatActivity) {
         })
     }
 
-    fun transactions(token: String, accountId: String, callback: IQuickSproutAPI, activity: AppCompatActivity = this.activity) {
+    fun transactions(token: String, accountId: String, callback: IQuickSproutAPI, activity: AppCompatActivity = this.activity, pagingToken: String? = null) {
         val client = OkHttpClient()
         val body = RequestBody.create(MediaType.parse("application/json"), """{"token" : "$token" }""")
+        var url = "$url/accounts/transactions?id=$accountId"
+        if (pagingToken != null) url += "&pagingToken=$pagingToken"
         val request = Request.Builder()
-            .url("""$url/accounts/transactions?id=$accountId""")
+            .url(url)
             .post(body)
             .addHeader("Content-Type", "application/json")
             .addHeader("cache-control", "no-cache")

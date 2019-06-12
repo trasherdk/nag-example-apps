@@ -10,7 +10,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 
-class TransactionsAdapter(private val data: JSONArray) : RecyclerView.Adapter<TransactionsAdapter.TransactionsViewHolder>() {
+class TransactionsAdapter(private var data: JSONArray) : RecyclerView.Adapter<TransactionsAdapter.TransactionsViewHolder>() {
 
     class TransactionsViewHolder(
         val container: LinearLayout)
@@ -22,13 +22,20 @@ class TransactionsAdapter(private val data: JSONArray) : RecyclerView.Adapter<Tr
     }
 
     override fun onBindViewHolder(holder: TransactionsViewHolder, position: Int) {
-        holder.container.type.text = (data[position] as JSONObject).get("type").toString()
-        holder.container.text.text = (data[position] as JSONObject).get("text").toString()
-        holder.container.date.text = (data[position] as JSONObject).get("date").toString()
-        holder.container.currency.text =  (data[position] as JSONObject).get("amount").toString() + (data[position] as JSONObject).get("currency").toString()
-        holder.container.state.text = (data[position] as JSONObject).get("state").toString()
+        val transaction = data[position] as JSONObject
+        holder.container.type.text = transaction.get("type").toString()
+        holder.container.text.text = transaction.get("text").toString()
+        holder.container.date.text = transaction.get("date").toString()
+        val amount = transaction.get("amount") as JSONObject
+        holder.container.amountView.text =  amount.get("value").toString() + " " + amount.get("currency").toString()
+        val balance = transaction.get("balance") as JSONObject
+        holder.container.balanceView.text =  balance.get("value").toString() + " " + balance.get("currency").toString()
+        holder.container.state.text = transaction.get("state").toString()
     }
 
     override fun getItemCount() = data.length()
 
+    fun setData(data: JSONArray) {
+        this.data = data
+    }
 }
