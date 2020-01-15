@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A83D66C522A7E35C0070BF22 /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
-		A83D66C622A7E41B0070BF22 /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
+		A83D66C622A7E41B0070BF22 /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A83D66C822A7FA410070BF22 /* QSAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C722A7FA410070BF22 /* QSAmount.swift */; };
 		A83D66CA22A80ECB0070BF22 /* QSGetAccountsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */; };
 		A83D66CC22A80F8B0070BF22 /* QSAccountNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */; };
@@ -296,7 +296,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Brian Vestergaard Danielsen";
 				TargetAttributes = {
 					AF35F2BE2166161D0011ABA6 = {
