@@ -62,10 +62,10 @@
                                     <constraint firstItem="WgV-kw-SJn" firstAttribute="top" secondItem="Gfw-zL-5wF" secondAttribute="top" id="dKk-9V-tRe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-vm-IDV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-vm-IDV">
                                 <rect key="frame" x="40" y="517" width="295" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGI-8f-oS7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGI-8f-oS7">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="40"/>
                                         <color key="backgroundColor" red="0.074509803920000006" green="0.75294117650000003" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -75,10 +75,16 @@
                                         <state key="normal" title="Pay 1 DKK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Ic9-pC-Qyz" kind="popoverPresentation" popoverAnchorView="tGI-8f-oS7" id="Rdb-ZU-AhK">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="tGI-8f-oS7" firstAttribute="top" secondItem="MaJ-vm-IDV" secondAttribute="top" id="6x8-fA-Tbu"/>
                                     <constraint firstAttribute="bottom" secondItem="tGI-8f-oS7" secondAttribute="bottom" constant="10" id="zM0-uL-cwc"/>
                                     <constraint firstAttribute="trailing" secondItem="tGI-8f-oS7" secondAttribute="trailing" id="zch-5j-YjF"/>
                                     <constraint firstItem="tGI-8f-oS7" firstAttribute="leading" secondItem="MaJ-vm-IDV" secondAttribute="leading" id="ziW-g2-tQn"/>
@@ -108,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcV-10-P5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241" y="72"/>
+            <point key="canvasLocation" x="-242.40000000000001" y="71.514242878560722"/>
         </scene>
         <!--Web View View Controller-->
         <scene sceneID="e7x-bC-VmK">
@@ -313,4 +319,7 @@
             <point key="canvasLocation" x="1511" y="732"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iQC-Uq-iCY"/>
+    </inferredMetricsTieBreakers>
 </document>
