@@ -76,7 +76,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ic9-pC-Qyz" kind="popoverPresentation" popoverAnchorView="tGI-8f-oS7" id="Rdb-ZU-AhK">
+                                            <segue destination="7nr-dC-XFV" kind="popoverPresentation" popoverAnchorView="tGI-8f-oS7" id="2Zk-op-uWD">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -318,8 +318,20 @@
             </objects>
             <point key="canvasLocation" x="1511" y="732"/>
         </scene>
+        <!--Payment Web View View Controller-->
+        <scene sceneID="Qtx-1d-bgj">
+            <objects>
+                <viewController id="7nr-dC-XFV" customClass="PaymentWebViewViewController" customModule="QuickSprout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZJa-Mq-jHy" customClass="NAGLoginView" customModule="NAGLoginSDK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ll0-sx-fse"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50c-8Y-D67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="-585"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="iQC-Uq-iCY"/>
-    </inferredMetricsTieBreakers>
 </document>
