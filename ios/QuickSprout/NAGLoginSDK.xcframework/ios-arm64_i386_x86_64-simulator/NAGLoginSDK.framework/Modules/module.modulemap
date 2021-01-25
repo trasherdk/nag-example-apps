@@ -1,0 +1,4 @@
+framework module NAGLoginSDK {
+  header "NAGLoginSDK-Swift.h"
+  requires objc
+}
