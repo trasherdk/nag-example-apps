@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A83D66C522A7E35C0070BF22 /* NAGLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
-		A83D66C622A7E41B0070BF22 /* NAGLoginSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */; };
+		2421121625BF135D005ECD53 /* NAGLoginSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2421121225BF1357005ECD53 /* NAGLoginSDK.xcframework */; };
+		2421121725BF135D005ECD53 /* NAGLoginSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2421121225BF1357005ECD53 /* NAGLoginSDK.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A83D66C822A7FA410070BF22 /* QSAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C722A7FA410070BF22 /* QSAmount.swift */; };
 		A83D66CA22A80ECB0070BF22 /* QSGetAccountsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */; };
 		A83D66CC22A80F8B0070BF22 /* QSAccountNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */; };
@@ -58,7 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A83D66C622A7E41B0070BF22 /* NAGLoginSDK.framework in Embed Frameworks */,
+				2421121725BF135D005ECD53 /* NAGLoginSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NAGLoginSDK.framework; sourceTree = "<group>"; };
+		2421121225BF1357005ECD53 /* NAGLoginSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NAGLoginSDK.xcframework; sourceTree = "<group>"; };
 		A83D66C722A7FA410070BF22 /* QSAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAmount.swift; sourceTree = "<group>"; };
 		A83D66C922A80ECB0070BF22 /* QSGetAccountsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSGetAccountsResponse.swift; sourceTree = "<group>"; };
 		A83D66CB22A80F8B0070BF22 /* QSAccountNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAccountNumber.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A83D66C522A7E35C0070BF22 /* NAGLoginSDK.framework in Frameworks */,
+				2421121625BF135D005ECD53 /* NAGLoginSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 		AF35F2B62166161D0011ABA6 = {
 			isa = PBXGroup;
 			children = (
-				A83D66C422A7E35C0070BF22 /* NAGLoginSDK.framework */,
+				2421121225BF1357005ECD53 /* NAGLoginSDK.xcframework */,
 				AF35F2C12166161D0011ABA6 /* QuickSprout */,
 				AF35F2D62166161E0011ABA6 /* QuickSproutTests */,
 				AF35F2E12166161E0011ABA6 /* QuickSproutUITests */,
@@ -559,8 +559,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 739F28RNN5;
+				DEVELOPMENT_TEAM = 8X8HMU3B25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -574,6 +575,7 @@
 				NAG_API_URL = "http://localhost:3000/init";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,8 +585,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 739F28RNN5;
+				DEVELOPMENT_TEAM = 8X8HMU3B25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -598,6 +601,7 @@
 				NAG_API_URL = "http://localhost:3000/init";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.nag.QuickSprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

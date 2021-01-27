@@ -1,0 +1,27 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NAGLoginSDK
+import Swift
+import UIKit
+import WebKit
+public protocol NAGLoginViewDelegate : AnyObject {
+  func didReceiveToken(code: Swift.String)
+  func didNotReceiveToken(error: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers public class NAGLoginView : UIKit.UIView {
+  public var appWebView: WebKit.WKWebView!
+  public var nagWebView: WebKit.WKWebView!
+  public var notificationName: Swift.String?
+  public var urlScheme: Swift.String?
+  weak public var delegate: NAGLoginSDK.NAGLoginViewDelegate?
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension NAGLoginView : WebKit.WKScriptMessageHandler {
+  @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  public static func formatReturnValueData(data: Swift.String) -> Swift.String
+}
+extension NAGLoginView : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
